@@ -18,12 +18,14 @@ class Task:
         d = 0
         _d = 0
 
-        while not rob.wall_is_on_the_right():
+        while True:
             if _d == 0:
                 pos = rob.get_pos()
                 rob.set_cell_type(pos[0], pos[1], rob.CELL_TO_BE_FILLED)
                 d += 1
                 _d = d
+            if rob.wall_is_on_the_right():
+                break
             rob.move_right()
             _d -= 1
 
